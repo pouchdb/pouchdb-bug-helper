@@ -1,2 +1,4 @@
-# pouchdb-bug-helper
- Make awesome reproducable bug reports for PouchDB
+PouchDB Bug Helper
+=========================
+
+Website to help people file reproducable bugs on PouchDB

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PouchDB Bug Helper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+  </head>
+  <body>
+    
+    <header>
+      <h1>PouchDB</h1>
+      <div class="glitchButton"></div>
+    </header>
+    
+    <h3>
+      Make awesome reproducable bug reports for PouchDB
+    </h3>
+    
+    <p>
+      This test page opens a PouchDB database, writes data to it and replicates it to 
+      a server based at <a href="/db/" target="_blank">/db/</a> when you click 
+      <code>Run Code</code>. Click <code>Remix on Glitch</code> to have your own copy of 
+      this project, modify <code>client.js</code> to show us your bug and then 
+      share the result with us at 
+      <a href="https://github.com/pouchdb/pouchdb/issues">PouchDB Issues</a>
+    </p>
+
+    <div id="code">
+      <pre id="preview"><code id="codepreview"></code></pre>        
+      <pre id="output"><code><button id="run">Run Code</button></code></pre>
+    </div>
+    
+    <script>
+      // Helper function to log data to the index.html
+      var logData = [];
+      function log(str) {
+        logData.push(str);
+        document.getElementById('output').innerHTML = logData.join('\n'); 
+      }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/pouchdb@6.4.1/dist/pouchdb.min.js"></script>
+    <script src="/client.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+    <script src="https://button.glitch.me/button.js"></script>
+    
+    <script>
+      fetch('client.js').then(function(resp) {
+        return resp.text();
+      }).then(function(text) {
+        var preview = document.getElementById('codepreview'); 
+        preview.innerHTML = text;
+        hljs.highlightBlock(preview);
+      });
+    </script>
+  </body>
+</html>
