@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 10px auto;
+  max-width: 800px;
+  background: #EEE;
+	font-family: "Open Sans",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #555;
+}
+
+a {
+	color: #fa3649;
+	text-decoration: none;
+}
+
+h1 {
+  height: 70px;
+  width: 225px;
+  background: url(https://pouchdb.com/static/img/logo.svg);
+  background-size: 100% 70px;
+  text-indent: -9999px;
+}
+
+header { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+code {
+	font-size: 14px;
+}
+
+#code { 
+  display: flex;
+}
+
+#preview, #output { 
+  flex: 1 1 auto;
+  flex-basis: 50%;
+  overflow: scroll;
+  padding: 10px;
+}
+
+#preview { 
+  background: #002b36;
+}
+
+#output { 
+  background: #111;
+  color: #EEE;
+}
